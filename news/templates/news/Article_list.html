@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}
+    Articles
+{% endblock title %}
+    
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+        <h3 class="pb-4 mb-4 font-italic border-bottom">
+            From the Server
+          </h3>
+        <ul class="list-group list-group-flush">
+            
+            {% for article in articles %}
+            <div class="blog-post">
+                <h2 class="blog-post-title"><a href="{% url 'article' article.pk %}">{{ article.headline }}</a></h2>
+                <p class="blog-post-meta">{{ article.pub_on | naturaltime }} by <a href="{% url 'reporter' article.reporter.username %}">@{{ article.reporter.get_username | title }}</a></p>
+        
+                <p>{{ article.short_desc }}</p>
+            </div>
+            {% endfor %}
+                
+        </ul>
+    </div>
+{% endblock content %}
+    

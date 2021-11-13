@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{article.headline}}
+{% endblock title %}
+    
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">{{ article.headline }}</h1>
+            <p class="lead">{{ article.short_desc }}</p>
+            <hr class="my-4">
+            <p>{{article.content}}</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </div>
+    </div>
+{% endblock content %}
+    
